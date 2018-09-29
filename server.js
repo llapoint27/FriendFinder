@@ -6,8 +6,8 @@ const path = require("path");
 //Tells node we are connecting to the "express" server
 const app = express();
 
-//Defining 8080 port
-var PORT = process.env.PORT || 8080;
+//Defining 3000 port
+const PORT = process.env.PORT || 3000;
 
 //Allows the Express app to handle parsing the data within a body
 app.use(bodyParser.urlencoded({ extended: true }));
