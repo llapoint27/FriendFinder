@@ -1,0 +1,29 @@
+.jumbotron {
+    margin-top: 5%;
+    height: 500px;
+    background-color: #FFA500;
+   
+}
+h1 {
+    color: white;
+    font-size: 70px;
+
+}
+.text-center {
+    color: white;
+
+}
+
+.btn {
+    background-color: #FF00FF;
+    color: white;
+    font-weight: bold;
+}
+.btn:hover {
+    background-color: #7FFFD4;
+    color: black;
+}
+
+.footer {
+    text-align: center;
+}
