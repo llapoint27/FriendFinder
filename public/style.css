@@ -36,3 +36,14 @@ h1 {
 #instructions {
     font-size: 20px;
 }
+
+.survey {
+    font-size: 40px;
+    text-align: center;
+}
+
+.links {
+    text-align: center;
+    list-style-type: none;
+}
+
