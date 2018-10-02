@@ -27,3 +27,12 @@ h1 {
 .footer {
     text-align: center;
 }
+
+#jumbo2 {
+    margin: auto;
+    height: 250px;
+}
+
+#instructions {
+    font-size: 20px;
+}
