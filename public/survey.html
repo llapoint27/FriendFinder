@@ -232,7 +232,6 @@
     <br>
     <br>
 
-
     <footer class="footer">
         <div class="container">
             <p>
@@ -270,50 +269,45 @@
 
 </html>
 
-<script type="text/javascript">
+<!-- document.ready? -->
 
-    $(document).ready(function () {
-
-        //form validation (all inputs and questions must be completed)
-        const valid = true;
-
-        if ($("#name").val()==="" || $("photo").val()==="") {
-        valid = false;
-        } else if ($("question1").val() === "empty" ||
-                    $("question2").val() === "empty" ||
-                    $("question3").val() === "empty" ||
-                    $("question4").val() === "empty" ||
-                    $("question5").val() === "empty" ||
-                    $("question6").val() === "empty" ||
-                    $("question7").val() === "empty" ||
-                    $("question8").val() === "empty")
-    valid = false;
-        }
-
-    });
-
-    $('#submitButton').on('click', function (event) {
+<script>
+    $("#submitButton").on("click", function (event) {
         event.preventDefault();
-
-        // Gather user inputs
-        var userInput = {
-            name: $('#name').val().trim(),
-            photo: $('#photo').val().trim(),
-            scores: [
-                $('#question1').val().trim(),
-                $('#question2').val().trim(),
-                $('#question3').val().trim(),
-                $('#question4').val().trim(),
-                $('#question5').val().trim(),
-                $('#question6').val().trim(),
-                $('#question7').val().trim(),
-                $('#question8').val().trim(),
-                $('#question9').val().trim(),
-                $('#question10').val().trim()
-            ]
-        };
+        // Form validation
+        var valid = true;
+        if ($("#name").val() === "" || $("#photo").val() === "") {
+            valid = false;
+        } else if ($("#question1").val() === "empty" || $("#question2").val() === "empty" || $("#question3").val() === "empty" || $("#question4").val() === "empty" || $("#question5").val() === "empty" || $("#question6").val() === "empty" || $("#question7").val() === "empty" || $("#question8").val() === "empty" || $("#question9").val() === "empty" || $("#question10").val() === "empty") {
+            valid = false;
+        }
+        if (valid === true) {
+            var newUser = {
+                name: $("#name").val().trim(),
+                photo: $("#photo").val().trim(),
+                scores: [
+                    $("#question1").val(),
+                    $("#question2").val(),
+                    $("#question3").val(),
+                    $("#question4").val(),
+                    $("#question5").val(),
+                    $("#question6").val(),
+                    $("#question7").val(),
+                    $("#question8").val(),
+                    $("#question9").val(),
+                    $("#question10").val()
+                ]
+            };
+            var currentURL = window.location.origin;
+            // Ajax call for receiving response after POST req
+            $.post(currentURL + "/api/friends", newUser, function (data) {
+                $("#bestFriend").text(data.name);
+                $("#bestFriendPhoto").attr("src", data.photo);
+                $("#bestFriendModal").modal("toggle");
+            });
+        } else {
+            // If a required field is missing, show alert
+            alert("Please answer all questions!");
+        }
     });
-
-
-
 </script>
