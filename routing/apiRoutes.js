@@ -1,7 +1,7 @@
-const path = require("path");
+var path = require("path");
 
 //import the list of friend entries
-const friendData = require("../app/data/friends");
+var friendData = require("../app/data/friends");
 
 module.exports = function (app) {
     app.get("/api/friends", function (req, res) {
@@ -13,28 +13,28 @@ module.exports = function (app) {
         console.log(req.body);
 
         //capture the user input objext
-        const userInput = req.body;
+        var userInput = req.body;
 
-        const userResponse = userInput.scores;
+        var userResponse = userInput.scores;
 
         //determining the best friend match
-        const matchName = " ";
-        const matchPhoto = " ";
+        var matchName = " ";
+        var matchPhoto = " ";
         totalDifference = 1000;
 
-        //run through all existing friends
+        //run through all existing friendData
         for (var i = 0; i < friendData.length; i++) {
 
             //calculating the differences for each question
-            const diff = 0;
+            var diff = 0;
             for (var j = 0; j <userInput.scores[j]; j++) {
-            diff += Math.abs(friends[i].scores[j] - userResponses[j]);
+            diff += Math.abs(friendData[i].scores[j] - userResponse[j]);
             }
 
             if (diff < totalDifference) {
                 diff = totalDifference;
-                matchName = friends[i].name;
-                matchPhoto = friends[i].photo;
+                matchName = friendData[i].name;
+                matchPhoto = friendData[i].photo;
             }
 
 
