@@ -1,9 +1,13 @@
 .jumbotron {
     margin-top: 5%;
     height: 500px;
-    background-color: #FFA500;
    
 }
+
+#jumbo {
+    background-color: orange;
+}
+
 h1 {
     color: white;
     font-size: 70px;
@@ -31,6 +35,7 @@ h1 {
 #jumbo2 {
     margin: auto;
     height: 300px;
+    background-color: orange;
 }
 
 #instructions {

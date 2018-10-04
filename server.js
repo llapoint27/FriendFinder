@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 8080;
 //Allows the Express app to handle parsing the data within a body
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static('public'))
 
 //Creates the routes
 require("./routing/apiRoutes")(app);

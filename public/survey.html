@@ -225,6 +225,31 @@
                         <button class="btn waves-effect waves-light" type="submit" name="action" id="submitButton">Submit Responses
                         </button>
                     </div>
+
+                    <div class="modal hide fade" id="bestFriendModal" role="dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">You have a match!</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <h2 id="bestFriend"></h2>
+                                    <img id="bestFriendPhoto" src="#">
+                                </div>
+                                <div class="modal-footer">
+                                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                    
+                                    <a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Fill Again!</a>
+                    
+                    
+                                </div>
+                            </div>
+                        </div>
+                    
+
+
+
+
+
                 </div>
             </div>
         </div>
@@ -242,28 +267,26 @@
     </footer>
 
     <!-- friend match modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">You have a match!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
 
-                    <h2 id="bestFriend"></h2>
-                    <img id="bestFriendPhoto" src="#">
+    <!-- <div class="modal hide fade" id="bestFriendModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">You have a match!</h5>
+            </div>
+            <div class="modal-body">
+                <h2 id="bestFriend"></h2>
+                <img id="bestFriendPhoto" src="#">
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
 
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Fill Again!</a>
 
-                </div>
+
             </div>
         </div>
-    </div>
+    </div> -->
+
 
 </body>
 
@@ -272,6 +295,9 @@
 <!-- document.ready? -->
 
 <script>
+    $(document).ready(function(){
+
+
     $("#submitButton").on("click", function (event) {
         event.preventDefault();
         // Form validation
@@ -299,13 +325,16 @@
                 ]
             };
             const currentURL = window.location.origin;
+            
+            $( '#name' ).val( '' );
+            $( '#photo' ).val( '' );
 
             // Ajax call for receiving response after POST req
-            $.post(currentURL + "/api/friends", newUser, function (data) {
+            $.post(currentURL + "/api/friends", newUser).done(function (data) {
 
+                $("#bestFriendModal").modal('toggle');
                 $("#bestFriend").text(data.matchName);
                 $("#bestFriendPhoto").attr("src", data.matchPhoto);
-                $("#bestFriendModal").modal("toggle");
 
             });
 
@@ -314,4 +343,6 @@
             alert("Please answer all questions!");
         }
     });
+
+      });
 </script>
