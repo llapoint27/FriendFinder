@@ -222,33 +222,27 @@
 
                     <!-- Survey Submit Button -->
                     <div>
-                        <button class="btn waves-effect waves-light" type="submit" name="action" id="submitButton">Submit Responses
+                        <button class="btn waves-effect waves-light" data-toggle="modal" type="submit" id="submitButton">Submit Responses
                         </button>
                     </div>
 
-                    <div class="modal hide fade" id="bestFriendModal" role="dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">You have a match!</h5>
-                                </div>
-                                <div class="modal-body">
-                                    <h2 id="bestFriend"></h2>
-                                    <img id="bestFriendPhoto" src="#">
-                                </div>
-                                <div class="modal-footer">
-                                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-                    
-                                    <a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Fill Again!</a>
-                    
-                    
-                                </div>
+                    <div class="modal fade" id="bestFriendModal" role="dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">You have a match!</h5>
+                            </div>
+                            <div class="modal-body">
+                                <h2 id="bestFriend"></h2>
+                                <img id="bestFriendPhoto" src="#">
+                            </div>
+                            <div class="modal-footer">
+
+                                <a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Fill Again!</a>
+
+
                             </div>
                         </div>
-                    
-
-
-
-
+                    </div>
 
                 </div>
             </div>
@@ -266,26 +260,9 @@
         </div>
     </footer>
 
-    <!-- friend match modal -->
-
-    <!-- <div class="modal hide fade" id="bestFriendModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">You have a match!</h5>
-            </div>
-            <div class="modal-body">
-                <h2 id="bestFriend"></h2>
-                <img id="bestFriendPhoto" src="#">
-            </div>
-            <div class="modal-footer">
-                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-
-                <a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Fill Again!</a>
-
-
-            </div>
-        </div>
-    </div> -->
+    <script>
+            $("[data-toggle='modal']").modal();
+        </script>
 
 
 </body>
@@ -295,54 +272,65 @@
 <!-- document.ready? -->
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
 
 
-    $("#submitButton").on("click", function (event) {
-        event.preventDefault();
-        // Form validation
-        const valid = true;
-        if ($("#name").val() === "" || $("#photo").val() === "") {
-            valid = false;
-        } else if ($("#question1").val() === "empty" || $("#question2").val() === "empty" || $("#question3").val() === "empty" || $("#question4").val() === "empty" || $("#question5").val() === "empty" || $("#question6").val() === "empty" || $("#question7").val() === "empty" || $("#question8").val() === "empty" || $("#question9").val() === "empty" || $("#question10").val() === "empty") {
-            valid = false;
-        }
-        if (valid === true) {
-            const newUser = {
-                name: $("#name").val().trim(),
-                photo: $("#photo").val().trim(),
-                scores: [
-                    $("#question1").val(),
-                    $("#question2").val(),
-                    $("#question3").val(),
-                    $("#question4").val(),
-                    $("#question5").val(),
-                    $("#question6").val(),
-                    $("#question7").val(),
-                    $("#question8").val(),
-                    $("#question9").val(),
-                    $("#question10").val()
-                ]
-            };
-            const currentURL = window.location.origin;
-            
-            $( '#name' ).val( '' );
-            $( '#photo' ).val( '' );
+        $("#submitButton").on("click", function (event) {
+            event.preventDefault();
+            // Form validation
+            const valid = true;
+            if ($("#name").val() === "" || $("#photo").val() === "") {
+                valid = false;
+            } else if ($("#question1").val() === "empty" || $("#question2").val() === "empty" || $("#question3").val() === "empty" || $("#question4").val() === "empty" || $("#question5").val() === "empty" || $("#question6").val() === "empty" || $("#question7").val() === "empty" || $("#question8").val() === "empty" || $("#question9").val() === "empty" || $("#question10").val() === "empty") {
+                valid = false;
+            }
+            if (valid === true) {
+                const newUser = {
+                    name: $("#name").val().trim(),
+                    photo: $("#photo").val().trim(),
+                    scores: [
+                        $("#question1").val(),
+                        $("#question2").val(),
+                        $("#question3").val(),
+                        $("#question4").val(),
+                        $("#question5").val(),
+                        $("#question6").val(),
+                        $("#question7").val(),
+                        $("#question8").val(),
+                        $("#question9").val(),
+                        $("#question10").val()
+                    ]
+                };
+                const currentURL = window.location.origin;
 
-            // Ajax call for receiving response after POST req
-            $.post(currentURL + "/api/friends", newUser).done(function (data) {
+                $('#name').val('');
+                $('#photo').val('');
+                $("#question1").val('');
+                $("#question2").val('');
+                $("#question3").val('');
+                $("#question4").val('');
+                $("#question5").val('');
+                $("#question6").val('');
+                $("#question7").val('');
+                $("#question8").val('');
+                $("#question9").val('');
+                $("#question10").val('');
 
-                $("#bestFriendModal").modal('toggle');
-                $("#bestFriend").text(data.matchName);
-                $("#bestFriendPhoto").attr("src", data.matchPhoto);
+                // Ajax call for receiving response after POST req
+                $.post(currentURL + "/api/friends", newUser).done(function (data) {
 
-            });
+                    $("#bestFriend").text(data.matchName);
+                    $("#bestFriendPhoto").attr("src", data.matchPhoto);
+                    $("#bestFriendModal").modal('toggle');
 
-        } else {
-            // If a required field is missing, show alert
-            alert("Please answer all questions!");
-        }
+
+                });
+
+            } else {
+                // If a required field is missing, show alert
+                alert("Please answer all questions!");
+            }
+        });
+
     });
-
-      });
 </script>
