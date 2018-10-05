@@ -20,7 +20,8 @@ module.exports = function (app) {
         //determining the best friend match
         var matchName = " ";
         var matchPhoto = " ";
-        totalDifference = 1000;
+        totalDifference = 500;
+        //picked high number to work with
 
         //run through all existing friendData
         for (var i = 0; i < friendData.length; i++) {
@@ -36,27 +37,17 @@ module.exports = function (app) {
                 matchName = friendData[i].name;
                 matchPhoto = friendData[i].photo;
             }
-
-
         }
         //adds new user to /api/friends
         friendData.push(userInput);
 
         // send back to browser the best friend match
-        res.json({status: 'OK', matchName: matchName, matchPhoto: matchPhoto});
-
+        res.json({
+                status: 'OK',
+                matchName: matchName, 
+                matchPhoto: matchPhoto
+                });
     });
-
-
-
-
-
-
-
-
-
-
-
 
 }
 
