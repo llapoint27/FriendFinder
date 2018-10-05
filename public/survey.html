@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <!-- custom css -->
-     <link rel="stylesheet" type="text/css" href="style.css">
-     <link rel="stylesheet" type="text/css" href="reset.css">
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="reset.css">
 
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
@@ -47,6 +47,31 @@
             </p>
         </div>
         <br>
+
+
+        <!-- friend match modal -->
+        <div class="modal fade" id="bestFriendModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">You have a match!</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <h2 id="bestFriend"></h2>
+                        <img id="bestFriendPhoto" src="#">
+                    </div>
+                    <div class="modal-footer">
+
+                        <!-- <a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Fill Again!</a> -->
+
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
         <h2 class="survey">Survey Questions</h2>
         <hr>
@@ -232,27 +257,6 @@
                         </button>
                     </div>
 
-                    <!-- friend match modal -->
-                    <div class="modal fade" id="bestFriendModal" role="dialog">
-                        <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">You have a match!</h5>
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <h2 id="bestFriend"></h2>
-                                <img id="bestFriendPhoto" src="#">
-                            </div>
-                            <div class="modal-footer">
-
-                                <!-- <a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Fill Again!</a> -->
-
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                        </div>
-                    </div>
 
                 </div>
             </div>
@@ -278,6 +282,7 @@
 
 <script>
     $(document).ready(function () {
+        $('#bestFriendModal').modal('hide');
 
 
         $("#submitButton").on("click", function (event) {
