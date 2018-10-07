@@ -41,6 +41,12 @@ module.exports = function (app) {
         //adds new user to /api/friends
         friendData.push(userInput);
 
+        console.log({
+            status: 'OK',
+            matchName: matchName, 
+            matchPhoto: matchPhoto
+            });
+
         // send back to browser the best friend match
         res.json({
                 status: 'OK',

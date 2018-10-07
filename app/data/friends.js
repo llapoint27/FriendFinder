@@ -2,8 +2,8 @@
 const friendsArray =
 
     [{
-        "name": "Danielle",
-        "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "name": "Angela",
+        "photo": "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/p-the-office-angela-kinsey.jpg",
         "scores": [
             5,
             1,
@@ -19,8 +19,8 @@ const friendsArray =
     },
 
     {
-        "name": "Joseph",
-        "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "name": "Dwight",
+        "photo": "http://images.fanpop.com/images/soapbox/the-office-%2528us%2529_139_top.jpg?cache=0",
         "scores": [
             5,
             1,
@@ -37,7 +37,7 @@ const friendsArray =
 
     {
         "name": "Michael",
-        "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "photo": "https://vignette.wikia.nocookie.net/theoffice/images/9/96/Prisonmike.png/revision/latest?cb=20100327171549",
         "scores": [
             1,
             2,
@@ -53,8 +53,8 @@ const friendsArray =
     },
 
     {
-        "name": "Cathy",
-        "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "name": "Pam",
+        "photo": "https://upload.wikimedia.org/wikipedia/en/thumb/6/67/Pam_Beesley.jpg/220px-Pam_Beesley.jpg",
         "scores": [
             2,
             1,
@@ -70,8 +70,8 @@ const friendsArray =
     },
 
     {
-        "name": "Paul",
-        "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "name": "Stanley",
+        "photo": "https://imgix.bustle.com/uploads/image/2018/1/29/66b4ebf6-4606-430e-9dfe-d8c9bdefd6d8-screen-shot-2018-01-29-at-11654-pm.png?w=970&h=582&fit=crop&crop=faces&auto=format&q=70",
         "scores": [
             5,
             1,
@@ -87,8 +87,8 @@ const friendsArray =
     },
 
     {
-        "name": "George",
-        "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "name": "Ryan",
+        "photo": "https://vignette.wikia.nocookie.net/theoffice/images/d/de/Ryan4.jpg/revision/latest?cb=20140726043955",
         "scores": [
             5,
             1,
@@ -105,7 +105,7 @@ const friendsArray =
     
     {
         "name": "Mary",
-        "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "photo": "https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/p-the-office-phyllis-smith.jpg",
         "scores": [
             3,
             3,
@@ -119,6 +119,6 @@ const friendsArray =
             1
         ]
     }]
-
+    
 
 module.exports = friendsArray;
