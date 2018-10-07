@@ -22,4 +22,5 @@ require("./routing/htmlRoutes")(app);
 // These routes give our server a "map" of how to respond when users visit or request data from various URLs.
 app.listen(PORT, function() {
   console.log("FriendFinder App listening on PORT: " + PORT);
+  console.log("your connection is working");
 });
