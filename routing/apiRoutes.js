@@ -10,7 +10,7 @@ module.exports = function (app) {
 
     //posting a new friend entry
     app.post("/api/friends", function (req, res) {
-        console.log(req.body);
+        // console.log(req.body);
 
         //capture the user input objext
         var userInput = req.body;

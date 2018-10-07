@@ -1,21 +1,22 @@
 .jumbotron {
     margin-top: 5%;
-    height: 500px;
-   
+    height: 500px; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 #jumbo {
     background-color: orange;
 }
 
-h1 {
-    color: white;
-    font-size: 70px;
-
-}
 .text-center {
     color: white;
+    font-size: 65px;
 
+}
+h2 {
+    font-size: 60px;
+    text-align: center;
 }
 
 .btn {
@@ -40,6 +41,7 @@ h1 {
 
 #instructions {
     font-size: 20px;
+    color: black;
 }
 
 .survey {
@@ -52,3 +54,10 @@ h1 {
     list-style-type: none;
 }
 
+.modal-body {
+    text-align: center;
+}
+.modal-title {
+    text-align: center;
+
+}
